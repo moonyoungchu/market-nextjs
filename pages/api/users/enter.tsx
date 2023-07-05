@@ -3,7 +3,6 @@ import withHandler, { ResponseType } from "@libs/server/withHandler";
 import client from "@libs/server/client";
 // import twilio from "twilio";
 // import sendEmail from "@libs/server/sendEmail";
-
 //const twilioClient = twilio(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 
 async function handler(
@@ -11,7 +10,7 @@ async function handler(
   res: NextApiResponse<ResponseType>
 ) {
   const { phone, email } = req.body;
-  const user = phone ? { phone: +phone } : email ? { email } : null;
+  const user = phone ? { phone: phone } : email ? { email } : null;
 
   if (!user) {
     return res.status(400).json({ ok: false });
