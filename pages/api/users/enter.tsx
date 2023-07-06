@@ -35,7 +35,7 @@ async function handler(
     },
   });
 
-  console.log(">>>payload", payload);
+  console.log(">>>enter payload", payload);
   console.log(">>>user", user);
   console.log(">>>token", token);
 
@@ -47,7 +47,6 @@ async function handler(
     //   to: process.env.MY_PHONE_NUMBER!,
     //   body: `Your login token is ${payload}.`,
     // });
-    //console.log("문자테스트", message);
   } else if (email) {
     console.log(">>>test mail")
     // 테스트 잠시 봉인
@@ -63,4 +62,4 @@ async function handler(
   });
 }
 
-export default withHandler("POST", handler);
+export default withHandler({method:"POST", handler, isPrivate: false});
